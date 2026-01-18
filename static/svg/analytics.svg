@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="grad-analytics-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4facfe" />
+      <stop offset="100%" stop-color="#00f2fe" />
+    </linearGradient>
+    <filter id="shadow-analytics" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#4facfe" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  <g filter="url(#shadow-analytics)">
+    <!-- Background Board -->
+    <rect x="8" y="10" width="48" height="44" rx="6" fill="url(#grad-analytics-bg)" />
+    
+    <!-- Chart Bars -->
+    <rect x="14" y="38" width="6" height="10" rx="2" fill="white" fill-opacity="0.8" />
+    <rect x="23" y="28" width="6" height="20" rx="2" fill="white" fill-opacity="0.9" />
+    <rect x="32" y="22" width="6" height="26" rx="2" fill="white" fill-opacity="0.95" />
+    <rect x="41" y="32" width="6" height="16" rx="2" fill="white" fill-opacity="0.85" />
+    
+    <!-- Trend Line -->
+    <polyline points="16,35 25,25 34,18 43,28 52,15" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+    <circle cx="52" cy="15" r="2.5" fill="white" />
+  </g>
+</svg>

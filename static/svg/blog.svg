@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="grad-blog-solid" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#667eea" />
+      <stop offset="100%" stop-color="#764ba2" />
+    </linearGradient>
+    <filter id="shadow-blog" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#764ba2" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  <g filter="url(#shadow-blog)">
+    <!-- Book Cover -->
+    <rect x="10" y="10" width="44" height="44" rx="6" fill="url(#grad-blog-solid)" />
+    <!-- Page Details -->
+    <rect x="18" y="18" width="28" height="4" rx="2" fill="rgba(255,255,255,0.9)" />
+    <rect x="18" y="28" width="28" height="4" rx="2" fill="rgba(255,255,255,0.6)" />
+    <rect x="18" y="38" width="18" height="4" rx="2" fill="rgba(255,255,255,0.6)" />
+    <!-- Bookmark/Accent -->
+    <path d="M44 10H50C52.2091 10 54 11.7909 54 14V30L49 26L44 30V10Z" fill="rgba(255,255,255,0.4)" />
+  </g>
+</svg>

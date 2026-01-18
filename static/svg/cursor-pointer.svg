@@ -1,0 +1,14 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <filter id="shadow" x="-2" y="-2" width="36" height="36">
+    <feGaussianBlur in="SourceAlpha" stdDeviation="1.5"/>
+    <feOffset dx="1" dy="1" result="offsetblur"/>
+    <feComponentTransfer>
+      <feFuncA type="linear" slope="0.5"/>
+    </feComponentTransfer>
+    <feMerge>
+      <feMergeNode/>
+      <feMergeNode in="SourceGraphic"/>
+    </feMerge>
+  </filter>
+  <path d="M11 3.5C10.1716 3.5 9.5 4.17157 9.5 5V12.5H8C7.17157 12.5 6.5 13.1716 6.5 14V18.5C6.5 18.7957 6.5586 19.0796 6.66623 19.3448L7.91623 22.8448C8.20031 23.6402 9.005 24.2083 9.8497 24.4195L14.7248 25.6387C15.4874 25.8293 16.2873 25.575 16.8392 24.9779L20.3392 21.1922C20.6058 20.9391 20.75 20.5661 20.75 20.178V9.5C20.75 8.67157 20.0784 8 19.25 8C18.4216 8 17.75 8.67157 17.75 9.5V10.25H17V6.5C17 5.67157 16.3284 5 15.5 5C14.6716 5 14 5.67157 14 6.5V7.25H13.25V5.5C13.25 4.67157 12.5784 4 11.75 4C10.9216 4 10.25 4.67157 10.25 5.5V3.5C10.25 3.17157 9.57843 2.5 8.75 2.5C7.92157 2.5 7.25 3.17157 7.25 3.5H9V3.5Z" fill="black" stroke="white" stroke-width="1.5" stroke-linejoin="round" filter="url(#shadow)"/>
+</svg>
