@@ -1,0 +1,142 @@
+/* =========================================================
+ * MasterHu Homepage Theme Configuration
+ * Author: MasterHu
+ * Website: https://masterhu.com.cn
+ * License: CC BY-NC 4.0
+ * ========================================================= */
+
+/* ==================================================
+   Theme Variables & Defaults
+   
+   Naming Convention:
+   - Use kebab-case for all variables (e.g., --main-bg-color).
+   - Prefix with the component or property it affects.
+   - Use descriptive names for colors and values.
+=================================================== */
+/* [CUSTOMIZE]: Theme variables — edit colors, borders, and shadows here */
+:root {
+  /* Synced to <meta name="theme-color"> by script.js; override per theme */
+  --theme-color: #1c1c1e;
+
+  /* --- Backgrounds --- */
+  /* Main page background image */
+  --main-bg-color: url(../img/background.webp);
+  /* Gradient used for text or accents */
+  --gradient: linear-gradient(120deg, #bd34fe, #e0321b 30%, #41d1ff 60%);
+  
+  /* --- Filters & Effects --- */
+  /* Backdrop blur amount for the background overlay */
+  --back-filter: 0px;
+  /* Color overlay for the background */
+  --back-filter-color: #00000000;
+  /* Blur amount for glassmorphism cards */
+  --card-filter: 0px;
+
+  /* --- Text Colors --- */
+  /* Primary text color (Main Content) */
+  --primary-text-color: #ffffff;
+  /* Accent color (Primary Brand Color) */
+  --accent-color: #a0a0ff;
+  /* Title color in cards */
+  --card-title-color: #ffffff;
+  /* Secondary text color (Subtitles, Dates, Status) */
+  --secondary-text-color: #cccccc;
+  /* Footer text color */
+  --footer-text-color: #ffffff;
+  /* Background for selected text (reserved for user customization) */
+  --text-bg-color: transparent;
+
+  /* --- Component Colors --- */
+  /* Background for cards/containers */
+  --card-bg-color: rgba(255, 255, 255, 0.1); 
+  /* Hover state for cards/interactive elements */
+  --card-hover-color: rgba(255, 255, 255, 0.2);
+  /* Background for tags in the sidebar */
+  --tag-bg-color: rgba(0, 0, 0, 0.15);
+  /* Motto text color */
+  --motto-color: #ffffff;
+
+  /* --- Navigation --- */
+  /* Navbar background (More translucent) */
+  --nav-bg-color: rgba(255, 255, 255, 0.1);
+  /* Navbar background once the page is scrolled (deeper glass) */
+  /* Navbar border color (reserved for user customization) */
+  --nav-border-color: rgba(255, 255, 255, 0.2);
+  /* Navbar shadow (reserved for user customization) */
+  --nav-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+  
+  /* --- Timeline & Icons --- */
+  /* Vertical line color in timeline */
+  --timeline-line-color: rgba(255, 255, 255, 0.15);
+  /* Timeline dot color (default white) */
+  --timeline-dot-color: #ffffff;
+  /* Timeline active dot color (first item pulse) */
+  --timeline-active-dot-color: #09f069;
+  /* Avatar border color */
+  --avatar-border-color: rgba(255, 255, 255, 0.6);
+  /* Fill color for SVG icons */
+  --icon-fill-color: #ffffff;
+
+  /* --- Borders & Shadows (iOS-inspired) --- */
+  /* Glass border - adjusts based on theme lightness */
+  --glass-border: 1px solid rgba(255, 255, 255, 0.18);
+  /* Component Shadow - iOS-style layered depth */
+  --modern-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 8px 24px rgba(0, 0, 0, 0.08);
+
+  /* --- Modal --- */
+  /* Full screen modal overlay background */
+  --modal-bg-color: rgba(20, 20, 20, 0.6);
+  /* Modal content box background */
+  --modal-main-bg: rgba(18, 18, 18, 0.96);
+
+  /* Z-Index Layers */
+  --z-index-negative: -1;
+  --z-index-nav: 1000;
+  --z-index-nav-menu: 2001;
+  --z-index-nav-burger: 2002;
+  --z-index-nav-item: 2003;
+  --z-index-nav-container: 2005;
+  --z-index-modal: 99999;
+  --z-index-modal-content: 100000;
+  --z-index-loading: 999999;
+}
+
+/* ==================================================
+   Theme Definitions
+=================================================== */
+
+/* --- Clear Theme (Default) --- */
+.theme-clear {
+  /* Inherits default values from :root */
+  --theme-color: #1c1c1e;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==================================================
+   Theme Specific Overrides
+=================================================== */
+
+
+
+/* ==================================================
+   Mobile Background Overrides
+   Only themes using the default background image;
+   gradient/solid themes (sky, white, dark) are excluded.
+================================================== */
+@media (max-width: 800px) {
+  html,
+  .theme-clear {
+    --main-bg-color: url(../img/background-wap.webp);
+  }
+}
