@@ -1,0 +1,268 @@
+<!-- =========================================================
+ * MasterHu Homepage
+ * Author: MasterHu
+ * Website: https://masterhu.com.cn
+ * License: CC BY-NC 4.0
+ * ========================================================= -->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+
+  <!-- Primary Meta Tags -->
+  <!-- [CUSTOMIZE]: SEO metadata stays static on purpose — social crawlers
+       do not execute JS, so og/twitter/jsonLd must be in the HTML.
+       Rendered content is configured in static/js/config.js instead. -->
+  <title>𝓜𝓪𝓼𝓽𝓮𝓻𝓱𝓾 | 个人主页</title>
+  <meta name="title" content="MasterHu | 个人主页">
+  <meta name="description" content="MasterHu 的个人主页 - 记录、分享、成长。让每一次技术探索和生活感悟都有迹可循。">
+  <meta name="keywords" content="masterhu,开发者,masterhu主页,masterhu homepage,个人主页,技术博客,开源项目,前端开发,后端开发,嵌入式开发">
+  <meta name="author" content="MasterHu">
+  <meta name="theme-color" content="#667eea">
+  <meta name="robots" content="index,follow">
+  <meta name="googlebot" content="index,follow">
+  <meta name="language" content="zh-CN">
+  <meta name="revisit-after" content="7 days">
+  <link rel="canonical" href="https://masterhu.com.cn/">
+
+  <!-- Preload Critical Resources -->
+  <!-- live2d is the only runtime third-party origin; no crossorigin — its no-CORS requests reuse this socket -->
+  <link rel="preconnect" href="https://registry.npmmirror.com">
+  <link rel="preconnect" href="https://skillicons.dev" crossorigin>
+  <link rel="preload" as="image" href="./static/img/avatar.gif">
+  <link rel="preload" as="image" href="./static/img/background.webp">
+  <link rel="preload" href="./static/fonts/Pacifico-Regular.ttf" as="font" type="font/ttf" crossorigin>
+
+  <!-- Open Graph / Facebook Meta Tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://masterhu.com.cn/">
+  <meta property="og:title" content="MasterHu | 个人主页">
+  <meta property="og:description" content="探索技术与艺术的边界，记录我的数字旅程。">
+  <meta property="og:image" content="https://masterhu.com.cn/static/img/background.webp">
+  <meta property="og:image:alt" content="MasterHu Homepage">
+  <meta property="og:site_name" content="MasterHu Homepage">
+  <meta property="og:locale" content="zh_CN">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://masterhu.com.cn/">
+  <meta name="twitter:title" content="MasterHu | 个人主页">
+  <meta name="twitter:description" content="探索技术与艺术的边界，记录我的数字旅程。">
+  <meta name="twitter:image" content="https://masterhu.com.cn/static/img/background.webp">
+  <meta name="twitter:creator" content="@masterhu">
+  <meta name="twitter:site" content="@masterhu">
+
+  <!-- Additional SEO Meta Tags -->
+  <meta name="application-name" content="MasterHu Homepage">
+  <meta name="apple-mobile-web-app-title" content="MasterHu">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="msapplication-TileColor" content="#667eea">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "MasterHu",
+    "url": "https://masterhu.com.cn",
+    "sameAs": [
+      "https://github.com/masterhulab",
+      "https://blog.masterhu.com.cn"
+    ],
+    "jobTitle": "Full Stack Developer",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Freelance"
+    },
+    "knowsAbout": ["HTML", "CSS", "JavaScript", "React", "Vue", "Node.js", "Python", "Go", "C/C++", "Linux", "Docker"],
+    "image": "https://masterhu.com.cn/static/img/avatar.gif"
+  }
+  </script>
+
+  <!-- Favicon -->
+  <link rel="icon" href="./static/img/favicon.ico">
+  <link rel="apple-touch-icon" href="./static/img/avatar.gif">
+
+  <!-- Site Config: single content source, edit static/js/config.js -->
+  <script src="./static/js/config.js"></script>
+
+  <!-- Inline Theme: Prevent Flash of Unstyled Content (FOUC) -->
+  <!-- Reads SITE_CONFIG.themes.classes; with no config there is nothing to
+       apply, so the page stays on the :root defaults -->
+  <script>
+    try {
+      var t = parseInt(localStorage.getItem("MH_THEME_INDEX"), 10);
+      if (!isFinite(t)) t = 0;
+      var THEME_CLASSES = (typeof SITE_CONFIG !== "undefined" && SITE_CONFIG.themes && SITE_CONFIG.themes.classes)
+        ? SITE_CONFIG.themes.classes
+        : [];
+      if (THEME_CLASSES[t]) document.documentElement.classList.add(THEME_CLASSES[t]);
+    } catch(e) {}
+  </script>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="./static/css/style.css?v=1.0.0">
+  <link rel="stylesheet" href="./static/css/mobile.css?v=1.0.0">
+  <link rel="stylesheet" href="./static/css/theme.css?v=1.0.0">
+</head>
+
+<body>
+  <!-- Loading Screen -->
+  <div class="mh-loading">
+    <div class="mh-loading-spinner">
+      <div class="mh-loading-ring"></div>
+    </div>
+    <span class="mh-loading-text" id="loading-brand"></span>
+  </div>
+
+  <!-- Navigation Bar -->
+  <nav class="mh-nav">
+    <div class="nav-container">
+      <span class="gradient-text" id="nav-brand"></span>
+      <!-- Nav links and the theme toggle are rendered from SITE_CONFIG.nav -->
+      <ul class="nav-links" id="nav-links"></ul>
+      <div class="nav-burger">
+        <div class="line1" aria-hidden="true"></div>
+        <div class="line2" aria-hidden="true"></div>
+        <div class="line3" aria-hidden="true"></div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Background Filter Overlay -->
+  <div class="mh-bg-filter" aria-hidden="true"></div>
+
+  <!-- Main Layout -->
+  <main class="mh-layout">
+    <!-- Left Sidebar -->
+    <aside class="mh-sidebar">
+      <div class="mh-avatar" id="sidebar-avatar"></div>
+      <div class="mh-sidebar-section mh-bio" id="sidebar-bio"></div>
+      <div class="mh-sidebar-section mh-tags" id="sidebar-tags"></div>
+      <dl class="mh-sidebar-section mh-status">
+        <div class="mh-status-item mh-status-item--uptime">
+          <dt class="mh-status-title">⏳ 运行时间</dt>
+          <dd class="mh-status-text mh-status-text--uptime" id="run-time">Loading...</dd>
+        </div>
+        <div class="mh-status-item">
+          <dt class="mh-status-title">👀 总访问量</dt>
+          <dd class="mh-status-text">
+            <span id="mh_site_pv"><i class="mh-inline-loading">Loading...</i></span>
+          </dd>
+        </div>
+        <div class="mh-status-item">
+          <dt class="mh-status-title">👤 总访客数</dt>
+          <dd class="mh-status-text">
+            <span id="mh_site_uv"><i class="mh-inline-loading">Loading...</i></span>
+          </dd>
+        </div>
+
+        <div class="mh-status-item">
+          <dt class="mh-status-title">🔥 访问热度</dt>
+          <dd class="mh-status-text">
+            <span id="mh_page_pv"><i class="mh-inline-loading">Loading...</i></span>
+          </dd>
+        </div>
+      </dl>
+      <div class="mh-sidebar-section mh-timeline">
+        <ul class="mh-timeline-list" id="sidebar-timeline"></ul>
+      </div>
+    </aside>
+    <div class="mh-content">
+      <header class="hero-section">
+        <div class="avatar-mobile" id="hero-avatar"></div>
+
+        <div class="hero-intro">
+          <div class="hero-greeting" id="hero-greeting"></div>
+          <div class="hero-motto" id="hero-motto"></div>
+        </div>
+
+        <!-- Social action buttons come from SITE_CONFIG.hero.social -->
+        <div class="hero-actions" id="hero-actions"></div>
+
+        <div class="snake">
+          <img id="snake-img" alt="Snake Contribution Graph" loading="lazy" decoding="async" />
+        </div>
+      </header>
+
+      <section class="mh-sections">
+        <div class="mh-sections-title">
+          <svg class="icon" aria-hidden="true">
+            <use href="./static/svg/icons.svg#icon-layout"></use>
+          </svg><span id="site-section-title"></span>
+        </div>
+        <div class="mh-site-grid" id="site-grid"></div>
+
+        <div class="mh-sections-title">
+          <svg class="icon" aria-hidden="true">
+            <use href="./static/svg/icons.svg#icon-layout"></use>
+          </svg><span id="project-section-title"></span>
+        </div>
+        <div class="mh-project-grid" id="project-grid"></div>
+      </section>
+
+      <section class="mh-sections">
+        <div class="mh-sections-title">
+          <svg class="icon" aria-hidden="true">
+            <use href="./static/svg/icons.svg#icon-skills"></use>
+          </svg>skills
+        </div>
+        <div class="mh-skills" id="skills"></div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>Copyright &copy; <time id="footer-year" datetime="2026">2026</time> By <a id="footer-link"><span id="footer-signature"></span></a>. <span id="footer-rights"></span></p>
+  </footer>
+
+  <!-- Modal for Images -->
+  <div class="mh-modal">
+    <div class="modal-main">
+      <button class="modal-close" aria-label="Close modal" type="button">×</button>
+      <div class="modal-stack">
+        <div class="modal-hint">⟵ 左右滑动切换 ⟶</div>
+        <div class="modal-stack-inner" id="reward-stack">
+          <div class="modal-arrow modal-arrow-left" aria-hidden="true">‹</div>
+          <!-- Reward QR images are rendered from SITE_CONFIG.reward -->
+          <div class="modal-arrow modal-arrow-right" aria-hidden="true">›</div>
+        </div>
+      </div>
+      <img class="modal-img" src="data:," alt="Reward QR Code" />
+    </div>
+  </div>
+
+  <!-- Third-party extras: Live2D mascot + analytics -->
+  <!-- [CUSTOMIZE]: Replace CDN / tracker or remove entirely -->
+  <!-- Pinned to 1.0.12 for reproducible builds; use the jsdelivr URLs when deploying overseas -->
+  <!-- Injected after DOMContentLoaded so first paint never waits on third parties -->
+  <script>
+    window.addEventListener("DOMContentLoaded", function () {
+      // Add entries here (tag + attributes) to bring in your own analytics,
+      // chat widget or any other non-critical third-party asset.
+      var EXTERNALS = [
+        { tag: "link", attrs: { rel: "stylesheet", href: "https://registry.npmmirror.com/weblive2d/1.0.12/files/waifu.css" } },
+        { tag: "script", attrs: { src: "https://registry.npmmirror.com/weblive2d/1.0.12/files/js/autoload.js" } },
+        { tag: "script", attrs: { src: "https://insight.masterhu.com.cn/tracker.js" } }
+      ];
+      EXTERNALS.forEach(function (item) {
+        var node = document.createElement(item.tag);
+        if (item.tag === "script") node.async = true;
+        Object.keys(item.attrs).forEach(function (name) {
+          node.setAttribute(name, item.attrs[name]);
+        });
+        document.head.appendChild(node);
+      });
+    });
+  </script>
+
+  <script src="./static/js/script.js?v=1.0.0" defer></script>
+</body>
+</html>
