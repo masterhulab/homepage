@@ -1,0 +1,38 @@
+#!/bin/sh
+# Enforce the subject convention:  <emoji> <type>(<scope>): <description>
+# Enable once per clone:  git config core.hooksPath .githooks
+
+msg_file=$1
+subject=$(head -n 1 "$msg_file")
+
+# Machine-generated subjects are exempt.
+case "$subject" in
+    Merge*|Revert*|fixup!*|squash!*)
+        exit 0
+        ;;
+esac
+
+fail() {
+    echo "commit-msg: $1" >&2
+    echo "  subject: $subject" >&2
+    echo "  expected: <emoji> <type>(<scope>): <description>" >&2
+    echo "  types: feat fix perf style refactor docs test build ci chore revert" >&2
+    exit 1
+}
+
+[ -n "$subject" ] || fail "subject line is empty"
+
+# A leading emoji means the first byte is outside ASCII.
+# `od` wraps at 16 bytes, so keep only the first line to avoid joining every
+# row's first byte into one multi-line string.
+first_byte=$(printf '%s' "$subject" | od -An -tu1 | awk 'NR==1{print $1}')
+[ "$first_byte" -ge 128 ] 2>/dev/null || fail "subject does not start with an emoji"
+
+# Cut on the space delimiter rather than sed: sed's [^ ]* cannot match a
+# 4-byte emoji under C.UTF-8, so a leading 🐛 would survive the strip.
+rest=$(printf '%s' "$subject" | cut -d' ' -f2-)
+printf '%s' "$rest" | grep -qE \
+    '^(feat|fix|perf|style|refactor|docs|test|build|ci|chore|revert)(\([^)]+\))?: ' \
+    || fail "subject is missing a <type>(<scope>): prefix"
+
+exit 0

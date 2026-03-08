@@ -45,6 +45,10 @@ homepage/
 │   ├── img/                # 图片资源 (头像、背景、二维码)
 │   ├── fonts/              # Web 字体 (Pacifico)
 │   └── svg/                # SVG 图标 Sprite 系统
+├── scripts/
+│   ├── verify.py           # 零依赖校验器 (断链/结构/版本/外部阻塞资源)
+│   └── release.py          # 版本号传播 (badge + ?v= + generator)
+├── .githooks/              # 可选 commit-msg 钩子 (强制提交格式)
 └── README.md               # 项目文档
 ```
 
@@ -209,6 +213,14 @@ var EXTERNALS = [
 ## 🤝 贡献与反馈
 
 欢迎提交 Issue 或 Pull Request！
+
+### 开发工作流
+
+- **提交规范**：commit message 用英文，格式 `<emoji> <type>(<scope>): <描述>`，
+  如 `🐛 fix(a11y): ...`；type 用 `feat` / `fix` / `perf` / `docs` / `chore` 等。
+- **提交前校验**：`python scripts/verify.py`（检查断链、HTML 结构、CSS/JS 语法、版本一致性、外部阻塞资源）。
+- **发布**：`python scripts/release.py --bump patch` 一次同步版本号，勿手改 `?v=`。
+- **可选**：`git config core.hooksPath .githooks` 启用提交钩子，强制 message 格式。
 
 - 🐛 [报告 Bug](https://github.com/masterhulab/homepage/issues)
 - 💡 [提出建议](https://github.com/masterhulab/homepage/issues)
