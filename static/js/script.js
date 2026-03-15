@@ -150,6 +150,14 @@
       list.appendChild(li);
     });
 
+    // Theme toggle rides along as the last nav entry
+    const toggleLi = el("li");
+    toggleLi.appendChild(el("button", {
+      "class": "nav-theme-toggle",
+      "type": "button",
+      "aria-label": "Toggle theme"
+    }));
+    list.appendChild(toggleLi);
   }
 
   function renderSidebar(cfg) {
@@ -348,6 +356,7 @@
 
       navBurger: document.querySelector(".nav-burger"),
       navLinks: document.querySelector(".nav-links"),
+      themeButton: document.querySelector(".nav-theme-toggle"),
 
       modal: document.querySelector(".mh-modal"),
       modalMain: document.querySelector(".modal-main"),
@@ -644,7 +653,7 @@
     });
 
     UI.navLinks.addEventListener("click", (e) => {
-      if (e.target.closest("a")) {
+      if (e.target.closest("a, .nav-theme-toggle")) {
         closeNav();
       }
     });
