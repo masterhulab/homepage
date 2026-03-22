@@ -137,7 +137,38 @@
   --modern-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 8px 24px rgba(0, 0, 0, 0.16);
 }
 
+/* --- Fresh Theme --- */
+.theme-fresh {
+  --theme-color: #eef2f7;
+  --main-bg-color: linear-gradient(160deg, #eef2f7 0%, #e7edfa 100%);
+  --primary-text-color: #000000;
+  --accent-color: #667eea;
+  --text-bg-color: rgba(121, 163, 231, 0.5);
 
+  --card-bg-color: rgba(249, 250, 251, 0.42);
+  --card-hover-color: rgba(244, 245, 246, 0.8);
+  --card-title-color: #000000;
+  --secondary-text-color: #494949;
+  
+  --footer-text-color: #333333;
+  --tag-bg-color: #c7e1fa;
+  --icon-fill-color: #000000;
+  
+  --nav-bg-color: rgba(255, 255, 255, 0.6);
+  --nav-border-color: rgba(0, 0, 0, 0.05);
+  --nav-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+  
+  --timeline-line-color: rgba(0, 0, 0, 0.1);
+  --timeline-dot-color: #333333;
+  --avatar-border-color: rgba(0, 0, 0, 0.15);
+  --motto-color: #000000;
+  
+  --modal-bg-color: rgba(0, 0, 0, 0.25);
+  --modal-main-bg: rgba(255, 255, 255, 0.96);
+  
+  --glass-border: 1px solid rgba(255, 255, 255, 0.4);
+  --modern-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 4px 12px rgba(0, 0, 0, 0.06);
+}
 
 
 
