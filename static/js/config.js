@@ -167,12 +167,14 @@ var SITE_CONFIG = {
   /* ---- Theme switcher: classes / names / icons must stay 1:1. ---- */
     themes: {
     classes: [
-      "theme-clear", "theme-dim", "theme-fresh"
+      "theme-clear", "theme-dim", "theme-fresh",
+      "theme-blur"
     ],
     names: [
-      "清晰原图", "暗淡原图", "清新卡片"
+      "清晰原图", "暗淡原图", "清新卡片",
+      "背景模糊"
     ],
-    icons: ["🖼️", "🌗", "🍃"]
+    icons: ["🖼️", "🌗", "🍃", "🌫️"]
   },
 
   /* ---- Hero motto (typewriter). ---- */

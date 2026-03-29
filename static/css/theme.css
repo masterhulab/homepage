@@ -170,7 +170,27 @@
   --modern-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 4px 12px rgba(0, 0, 0, 0.06);
 }
 
-
+/* --- Blur Theme --- */
+.theme-blur {
+  --theme-color: #1c1c1e;
+  --primary-text-color: #eeeeee;
+  --accent-color: #a0a0ff;
+  
+  --card-bg-color: rgba(0, 0, 0, 0.22);
+  --card-hover-color: rgba(51, 51, 51, 0.22);
+  --secondary-text-color: #ffffff;
+  
+  --back-filter: 19px;
+  --back-filter-color: rgba(0, 0, 0, 0.19);
+  
+  --nav-bg-color: rgba(0, 0, 0, 0.2);
+  --nav-border-color: rgba(255, 255, 255, 0.1);
+  
+  --timeline-line-color: rgba(255, 255, 255, 0.15);
+  
+  --modal-bg-color: rgba(0, 0, 0, 0.65);
+  --modal-main-bg: rgba(10, 10, 10, 0.98);
+}
 
 
 
@@ -192,7 +212,8 @@
 @media (max-width: 800px) {
   html,
   .theme-clear,
-  .theme-dim {
+  .theme-dim,
+  .theme-blur {
     --main-bg-color: url(../img/background-wap.webp);
   }
 }
