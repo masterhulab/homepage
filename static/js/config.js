@@ -168,13 +168,13 @@ var SITE_CONFIG = {
     themes: {
     classes: [
       "theme-clear", "theme-dim", "theme-fresh",
-      "theme-blur"
+      "theme-blur", "theme-sky"
     ],
     names: [
       "清晰原图", "暗淡原图", "清新卡片",
-      "背景模糊"
+      "背景模糊", "蔚蓝天际"
     ],
-    icons: ["🖼️", "🌗", "🍃", "🌫️"]
+    icons: ["🖼️", "🌗", "🍃", "🌫️", "🌊"]
   },
 
   /* ---- Hero motto (typewriter). ---- */
