@@ -225,7 +225,38 @@
   --modern-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 4px 12px rgba(0, 0, 0, 0.06);
 }
 
-
+/* --- White Theme --- */
+.theme-white {
+  --theme-color: #f2f2f7;
+  --main-bg-color: #f2f2f7; /* System Gray 6 (Light) */
+  --primary-text-color: #000000;
+  --accent-color: #007aff; /* System Blue */
+  --text-bg-color: rgba(0, 0, 0, 0.05);
+  
+  --card-bg-color: rgba(255, 255, 255, 0.7);
+  --card-hover-color: rgba(255, 255, 255, 0.9);
+  --card-title-color: #000000;
+  --secondary-text-color: #3c3c43; /* System Label Color */
+  
+  --footer-text-color: #8e8e93;
+  --tag-bg-color: rgba(0, 0, 0, 0.05);
+  --icon-fill-color: #000000;
+  
+  --nav-bg-color: rgba(255, 255, 255, 0.8);
+  --nav-border-color: rgba(0, 0, 0, 0.05);
+  --nav-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  
+  --timeline-line-color: #c6c6c8;
+  --timeline-dot-color: #333333;
+  --avatar-border-color: rgba(0, 0, 0, 0.1);
+  --motto-color: #000000;
+  
+  --modal-bg-color: rgba(0, 0, 0, 0.2);
+  --modal-main-bg: rgba(255, 255, 255, 0.95);
+  
+  --glass-border: 1px solid rgba(0, 0, 0, 0.05);
+  --modern-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 4px 12px rgba(0, 0, 0, 0.06);
+}
 
 
 
@@ -233,7 +264,12 @@
    Theme Specific Overrides
 =================================================== */
 
-
+/* Remove backdrop filter for White Theme */
+.theme-white .mh-bg-filter {
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  background: transparent;
+}
 
 /* ==================================================
    Mobile Background Overrides
