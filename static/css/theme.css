@@ -258,7 +258,35 @@
   --modern-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 4px 12px rgba(0, 0, 0, 0.06);
 }
 
-
+/* --- Dark Theme --- */
+.theme-dark {
+  --theme-color: #000000;
+  --main-bg-color: #000000;
+  --primary-text-color: #ffffff;
+  --accent-color: #0a84ff; /* System Dark Blue */
+  --text-bg-color: rgba(255, 255, 255, 0.1);
+  
+  --card-bg-color: rgba(28, 28, 30, 0.6); /* System Gray 6 (Dark) */
+  --card-hover-color: rgba(44, 44, 46, 0.8);
+  --card-title-color: #ffffff;
+  --secondary-text-color: #ebebf5;
+  
+  --footer-text-color: #8e8e93;
+  --tag-bg-color: rgba(255, 255, 255, 0.1);
+  --icon-fill-color: #ffffff;
+  
+  --nav-bg-color: rgba(28, 28, 30, 0.6);
+  --nav-border-color: rgba(255, 255, 255, 0.1);
+  --nav-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+  
+  --timeline-line-color: rgba(255, 255, 255, 0.2);
+  
+  --modal-bg-color: rgba(0, 0, 0, 0.75);
+  --modal-main-bg: rgba(28, 28, 30, 0.95);
+  
+  --glass-border: 1px solid rgba(255, 255, 255, 0.1);
+  --modern-shadow: 0 1px 3px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.4);
+}
 
 /* ==================================================
    Theme Specific Overrides
