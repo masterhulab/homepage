@@ -165,7 +165,7 @@ var SITE_CONFIG = {
   },
 
   /* ---- Theme switcher: classes / names / icons must stay 1:1. ---- */
-    themes: {
+  themes: {
     classes: [
       "theme-clear", "theme-dim", "theme-fresh",
       "theme-blur", "theme-sky", "theme-white",
@@ -193,5 +193,13 @@ var SITE_CONFIG = {
   snake: {
     light: "./static/svg/snake-Light.svg",
     dark: "./static/svg/snake-Dark.svg"
+  },
+
+  /* ---- 404 page copy. ---- */
+  notFound: {
+    title: "404 - MasterHu",
+    heading: "页面去太空旅行了",
+    description: ["这个页面可能已经被黑洞吞噬", "或者从未在这个宇宙中存在过。"],
+    buttonText: "返回首页"
   }
 };

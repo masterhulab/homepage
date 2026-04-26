@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 - MasterHu</title>
+  <meta name="robots" content="noindex, follow">
+
+  <!-- Anchor relative paths to the site root; use "/repo/" when hosted in a subdirectory -->
+  <base href="/">
+
+  <link rel="icon" href="./static/img/favicon.ico">
+
+  <!-- Site Config (optional, fallback safe) -->
+  <script src="./static/js/config.js"></script>
+
+  <!-- Theme (inline FOUC prevention) -->
+  <script>
+    (function () {
+      var THEME_CLASSES = (typeof SITE_CONFIG !== "undefined" && SITE_CONFIG.themes && SITE_CONFIG.themes.classes)
+        ? SITE_CONFIG.themes.classes
+        : [];
+      try {
+        var idx = parseInt(localStorage.getItem("MH_THEME_INDEX"), 10);
+        if (!isFinite(idx)) idx = 0;
+        var t = THEME_CLASSES[idx];
+        if (t) document.documentElement.classList.add(t);
+      } catch (e) {}
+    })();
+  </script>
+
+  <link rel="stylesheet" href="./static/css/theme.css?v=1.0.0">
+  <link rel="stylesheet" href="./static/css/style.css?v=1.0.0">
+  <link rel="stylesheet" href="./static/css/mobile.css?v=1.0.0">
+
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      background: var(--main-bg-color);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .mh-404-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      padding: 48px 40px;
+      max-width: 420px;
+      width: 90%;
+
+      background: var(--card-bg-color);
+      border-radius: var(--modern-radius-lg);
+      border: var(--glass-border);
+      box-shadow: var(--modern-shadow);
+      backdrop-filter: blur(var(--card-filter));
+      -webkit-backdrop-filter: blur(var(--card-filter));
+
+      text-align: center;
+    }
+
+    .mh-404-avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: url(./static/img/avatar.gif) center/cover no-repeat;
+      border: 3px solid var(--accent-color, #a0a0ff);
+      box-shadow: 0 0 20px rgba(160, 160, 255, 0.2);
+      animation: mh-404-float 3s ease-in-out infinite;
+    }
+
+    .mh-404-code {
+      font-size: 72px;
+      font-weight: 800;
+      line-height: 1;
+      background: var(--gradient);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: mh-404-pulse 2s ease-in-out infinite alternate;
+    }
+
+    .mh-404-title {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--primary-text-color);
+      margin: 0;
+    }
+
+    .mh-404-desc {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--secondary-text-color);
+      margin: 0;
+    }
+
+    .mh-404-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 8px;
+      padding: 10px 28px;
+
+      background: var(--accent-color, #a0a0ff);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: var(--modern-radius-sm);
+      border: none;
+      cursor: pointer;
+
+      box-shadow: 0 2px 8px rgba(160, 160, 255, 0.3);
+      transition: transform 0.3s var(--spring-bounce), box-shadow 0.3s ease;
+    }
+
+    .mh-404-btn:hover {
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 4px 16px rgba(160, 160, 255, 0.4);
+    }
+
+    .mh-404-btn:active {
+      transform: scale(0.97);
+    }
+
+    .mh-404-btn svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+    }
+
+    @keyframes mh-404-float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    @keyframes mh-404-pulse {
+      0% { transform: scale(1); }
+      100% { transform: scale(1.04); }
+    }
+
+    @media (max-width: 800px) {
+      .mh-404-card {
+        padding: 36px 24px;
+        gap: 16px;
+      }
+      .mh-404-avatar {
+        width: 80px;
+        height: 80px;
+      }
+      .mh-404-code {
+        font-size: 56px;
+      }
+      .mh-404-title {
+        font-size: 18px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .mh-404-avatar,
+      .mh-404-code {
+        animation: none;
+      }
+      .mh-404-btn {
+        transition: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="mh-404-card">
+    <div class="mh-404-avatar" id="not-found-avatar" aria-hidden="true"></div>
+    <div class="mh-404-code">404</div>
+    <h1 class="mh-404-title" id="not-found-heading">页面去太空旅行了</h1>
+    <p class="mh-404-desc" id="not-found-desc">这个页面可能已经被黑洞吞噬，<br>或者从未在这个宇宙中存在过。</p>
+    <a href="./" class="mh-404-btn">
+      <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+      <span id="not-found-btn-text">返回首页</span>
+    </a>
+  </div>
+  <script>
+    (function () {
+      try {
+        var C = (typeof SITE_CONFIG !== "undefined") ? SITE_CONFIG : {};
+        var nf = C.notFound || {};
+        if (nf.title) document.title = nf.title;
+        var h = document.getElementById("not-found-heading");
+        if (h && nf.heading) h.textContent = nf.heading;
+        var d = document.getElementById("not-found-desc");
+        // textContent only: a remote description must never become markup
+        if (d && nf.description) {
+          d.textContent = "";
+          (Array.isArray(nf.description) ? nf.description : [nf.description])
+            .forEach(function (line, i) {
+              if (i > 0) d.appendChild(document.createElement("br"));
+              d.appendChild(document.createTextNode(line));
+            });
+        }
+        var bt = document.getElementById("not-found-btn-text");
+        if (bt && nf.buttonText) bt.textContent = nf.buttonText;
+        var av = document.getElementById("not-found-avatar");
+        if (av && C.avatar) av.style.backgroundImage = "url(" + C.avatar + ")";
+      } catch (e) {}
+    })();
+  </script>
+</body>
+</html>
