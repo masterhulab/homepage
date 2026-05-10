@@ -483,8 +483,13 @@
   }
 
   /* Modal Logic */
+  /* Track the element that triggered the modal for focus restoration */
+  let modalTriggerElement = null;
+
   function openModal(imgUrl) {
     if (!UI.modal) return;
+
+    modalTriggerElement = document.activeElement;
 
     // Update main image
     if (UI.modalImage && imgUrl) {
@@ -506,6 +511,9 @@
         if(UI.modalMain) UI.modalMain.classList.add("active");
     }, 100);
 
+    // Focus trap: focus the close button
+    const closeBtn = UI.modal.querySelector(".modal-close");
+    if (closeBtn) setTimeout(() => closeBtn.focus(), 150);
   }
 
   function closeModal() {
@@ -519,6 +527,12 @@
       // data:, instead of "" — an empty src re-requests the page URL
       if (UI.modalImage) UI.modalImage.src = "data:,";
       document.body.classList.remove("modal-open");
+
+      // Restore focus to the trigger element
+      if (modalTriggerElement && typeof modalTriggerElement.focus === "function") {
+        modalTriggerElement.focus();
+        modalTriggerElement = null;
+      }
     }, 200);
   }
 
@@ -548,6 +562,53 @@
     if (closeBtn) {
       closeBtn.addEventListener("click", closeModal);
     }
+
+    // Close on Escape
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        closeModal();
+      }
+    });
+
+    // Focus Trap + Arrow Key Navigation
+    UI.modal.addEventListener("keydown", (e) => {
+      if (!UI.modal.classList.contains("active")) return;
+
+      // Arrow keys to switch images in stack
+      if ((e.key === "ArrowLeft" || e.key === "ArrowRight") && UI.modalStackItems) {
+        e.preventDefault();
+        if (e.key === "ArrowLeft") {
+          UI.modalStackIndex = (UI.modalStackIndex - 1 + UI.modalStackItems.length) % UI.modalStackItems.length;
+        } else {
+          UI.modalStackIndex = (UI.modalStackIndex + 1) % UI.modalStackItems.length;
+        }
+        UI.modalStackShow(UI.modalStackIndex);
+        return;
+      }
+
+      // Tab focus trap
+      if (e.key !== "Tab") return;
+
+      const focusable = UI.modal.querySelectorAll(
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+      );
+      if (!focusable.length) return;
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+
+      if (e.shiftKey) {
+        if (document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        }
+      } else {
+        if (document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    });
 
     // Mobile Stack Swipe Logic
     if (UI.modalStack) {
@@ -652,6 +713,32 @@
       UI.navLinks.setAttribute("aria-hidden", expanded ? "true" : "false");
     });
 
+    UI.navBurger.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        UI.navBurger.click();
+      }
+    });
+
+    // Reset nav state when the viewport crosses the 801px breakpoint (see mobile.css)
+    const mq = window.matchMedia("(min-width: 801px)");
+    const syncNavForViewport = (e) => {
+      if (e.matches) {
+        UI.navLinks.classList.remove("nav-active");
+        UI.navBurger.classList.remove("toggle");
+        document.body.classList.remove("nav-open");
+        UI.navBurger.setAttribute("aria-expanded", "false");
+        UI.navLinks.removeAttribute("aria-hidden");
+      } else if (!UI.navLinks.classList.contains("nav-active")) {
+        UI.navLinks.setAttribute("aria-hidden", "true");
+      }
+    };
+    if (typeof mq.addEventListener === "function") {
+      mq.addEventListener("change", syncNavForViewport);
+    } else if (typeof mq.addListener === "function") {
+      mq.addListener(syncNavForViewport);
+    }
+
     UI.navLinks.addEventListener("click", (e) => {
       if (e.target.closest("a, .nav-theme-toggle")) {
         closeNav();
@@ -678,6 +765,10 @@
       UI.heroMotto.textContent = "";
       return;
     }
+
+    // The typewriter is aria-hidden, so mirror the motto as static text
+    const mottoAlt = document.getElementById("hero-motto-alt");
+    if (mottoAlt) mottoAlt.textContent = MOTTO_TEXTS[0];
 
     let mottoIndex = 0;
     let charIndex = 0;
@@ -746,16 +837,28 @@
   }
 
   /**
-   * Uses IntersectionObserver to pause/resume card icon float animation.
+   * Reveal-on-scroll for cards and the skills banner: elements start hidden
+   * (CSS) and get .mh-in the first time they enter the viewport. The same
+   * observer keeps pausing/resuming the card icon float animation off-screen.
    */
   function initCardAnimationObserver() {
-    if (!("IntersectionObserver" in window)) return;
-
-    const cards = document.querySelectorAll(".mh-site-card, .mh-project-card");
+    const cards = document.querySelectorAll(
+      ".mh-site-card, .mh-project-card, .mh-skills img"
+    );
     if (!cards.length) return;
+
+    if (!("IntersectionObserver" in window)) {
+      // No observer support: show everything immediately
+      cards.forEach((card) => card.classList.add("mh-in"));
+      return;
+    }
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("mh-in");
+          observer.unobserve(entry.target);
+        }
         const icon = entry.target.querySelector("img");
         if (icon) {
           icon.style.animationPlayState = entry.isIntersecting ? "running" : "paused";
@@ -798,6 +901,16 @@
     // Uptime timer: only starts after DOM is ready
     let uptimeTimer = setInterval(updateSiteUptime, 1000);
     updateSiteUptime();
+
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) {
+        clearInterval(uptimeTimer);
+      } else {
+        updateSiteUptime();
+        clearInterval(uptimeTimer);
+        uptimeTimer = setInterval(updateSiteUptime, 1000);
+      }
+    });
 
     // Fall back to placeholders if the tracker script is blocked
     initStatsFallback();

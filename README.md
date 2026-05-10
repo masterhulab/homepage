@@ -1,6 +1,6 @@
 # MasterHu Homepage | 个人主页模板
 
-![Version](https://img.shields.io/badge/version-1.0.0-blue)
+![Version](https://img.shields.io/badge/version-1.1.0-blue)
 
 ![License](https://img.shields.io/badge/license-CC%20BY--NC%204.0-green)
 ![HTML](https://img.shields.io/badge/HTML-5-orange)
@@ -18,6 +18,7 @@
 - ⚡ **极致轻量** - 纯原生技术栈，无 Node.js/Webpack 依赖，核心代码体积极小
 - 🎭 **沉浸式体验** - 毛玻璃拟态 (Glassmorphism) 设计，配合流畅的 iOS 风格过渡动画
 - ⌨️ **动态交互** - 首页打字机效果、图片画廊弹窗（支持键盘方向键切换）、多层渐变加载动画
+- ♿ **无障碍友好** - ARIA 标签、Focus Trap、键盘导航、`prefers-reduced-motion` 支持
 - 📊 **数据统计** - 集成自定义访问统计，实时展示站点热度
 - 🧩 **数据驱动** - 页面内容全部由 `static/js/config.js` 渲染，改配置即改页面，为未来接入后台管理预留了同一份数据契约
 - 🚫 **404 趣味页** - 自定义 404 页面，跟随主题，带返回首页引导
@@ -210,6 +211,15 @@ var EXTERNALS = [
 | ✅ 80+ | ✅ 75+ | ✅ 13+ | ✅ 80+ | ❌ |
 
 > **注意**: 部分高级效果（如 `color-mix()` 主题自适应发光色）需要 Chrome 111+、Firefox 113+、Safari 16.2+。旧浏览器会自动降级为固定颜色，不影响核心功能。
+
+## ♿ 无障碍说明
+
+本项目注重无障碍体验，已实现以下能力：
+
+- **ARIA 标签**: 导航、模态框、头像等关键元素均添加了 `aria-label`
+- **键盘导航**: 模态框支持 Tab 循环（Focus Trap）、方向键切换图片、Enter/Space 触发汉堡菜单
+- **减少动画**: 自动响应 `prefers-reduced-motion: reduce`，禁用所有非必要动画
+- **焦点管理**: 模态框打开时焦点自动移入，关闭时焦点恢复到触发元素
 
 ## 🤝 贡献与反馈
 

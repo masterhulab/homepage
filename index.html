@@ -92,6 +92,20 @@
   <!-- Site Config: single content source, edit static/js/config.js -->
   <script src="./static/js/config.js"></script>
 
+  <!-- Without JS nothing renders: drop the overlay and show a hint instead -->
+  <noscript>
+    <style>
+      .mh-loading { display: none !important; }
+      .mh-noscript { display: flex !important; }
+    </style>
+    <div class="mh-noscript" role="alert">
+      <div class="mh-noscript-card">
+        <span class="mh-noscript-icon">🛰️</span>
+        <p>本站内容由 JavaScript 渲染，请在浏览器设置中启用后刷新。</p>
+      </div>
+    </div>
+  </noscript>
+
   <!-- Inline Theme: Prevent Flash of Unstyled Content (FOUC) -->
   <!-- Reads SITE_CONFIG.themes.classes; with no config there is nothing to
        apply, so the page stays on the :root defaults -->
@@ -107,14 +121,14 @@
   </script>
 
   <!-- Stylesheets -->
-  <link rel="stylesheet" href="./static/css/style.css?v=1.0.0">
-  <link rel="stylesheet" href="./static/css/mobile.css?v=1.0.0">
-  <link rel="stylesheet" href="./static/css/theme.css?v=1.0.0">
+  <link rel="stylesheet" href="./static/css/style.css?v=1.1.0">
+  <link rel="stylesheet" href="./static/css/mobile.css?v=1.1.0">
+  <link rel="stylesheet" href="./static/css/theme.css?v=1.1.0">
 </head>
 
 <body>
   <!-- Loading Screen -->
-  <div class="mh-loading">
+  <div class="mh-loading" role="status" aria-label="页面加载中">
     <div class="mh-loading-spinner">
       <div class="mh-loading-ring"></div>
     </div>
@@ -127,7 +141,7 @@
       <span class="gradient-text" id="nav-brand"></span>
       <!-- Nav links and the theme toggle are rendered from SITE_CONFIG.nav -->
       <ul class="nav-links" id="nav-links"></ul>
-      <div class="nav-burger">
+      <div class="nav-burger" aria-label="Toggle navigation" aria-expanded="false" role="button" tabindex="0">
         <div class="line1" aria-hidden="true"></div>
         <div class="line2" aria-hidden="true"></div>
         <div class="line3" aria-hidden="true"></div>
@@ -180,7 +194,8 @@
 
         <div class="hero-intro">
           <div class="hero-greeting" id="hero-greeting"></div>
-          <div class="hero-motto" id="hero-motto"></div>
+          <div class="hero-motto" id="hero-motto" aria-hidden="true"></div>
+          <span class="sr-only" id="hero-motto-alt"></span>
         </div>
 
         <!-- Social action buttons come from SITE_CONFIG.hero.social -->
@@ -224,7 +239,7 @@
   </footer>
 
   <!-- Modal for Images -->
-  <div class="mh-modal">
+  <div class="mh-modal" role="dialog" aria-modal="true" aria-hidden="true">
     <div class="modal-main">
       <button class="modal-close" aria-label="Close modal" type="button">×</button>
       <div class="modal-stack">
@@ -263,6 +278,6 @@
     });
   </script>
 
-  <script src="./static/js/script.js?v=1.0.0" defer></script>
+  <script src="./static/js/script.js?v=1.1.0" defer></script>
 </body>
 </html>
