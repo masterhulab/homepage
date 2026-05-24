@@ -79,6 +79,8 @@
     white-space: nowrap;
     opacity: 0;
     pointer-events: none;
+    /* visibility also drops the collapsed menu out of the tab order */
+    visibility: hidden;
     
     /* Animation: Slide down + Scale from top-right */
     transform-origin: top right;
@@ -143,6 +145,7 @@
     opacity: 1;
     transform: translateY(0) scale(1);
     pointer-events: auto;
+    visibility: visible;
   }
 
   /* ==================================================
