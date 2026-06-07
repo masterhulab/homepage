@@ -19,6 +19,10 @@
     font-size: 14px;
   }
 
+  body.nav-open {
+    overflow: hidden;
+  }
+
   .mh-bg-filter {
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
