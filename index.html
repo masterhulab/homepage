@@ -34,7 +34,9 @@
   <link rel="preconnect" href="https://registry.npmmirror.com">
   <link rel="preconnect" href="https://skillicons.dev" crossorigin>
   <link rel="preload" as="image" href="./static/img/avatar.gif">
-  <link rel="preload" as="image" href="./static/img/background.webp">
+  <!-- Load only the background that matches the current viewport -->
+  <link rel="preload" as="image" href="./static/img/background.webp" media="(min-width: 801px)">
+  <link rel="preload" as="image" href="./static/img/background-wap.webp" media="(max-width: 800px)">
   <link rel="preload" href="./static/fonts/Pacifico-Regular.ttf" as="font" type="font/ttf" crossorigin>
 
   <!-- Open Graph / Facebook Meta Tags -->
