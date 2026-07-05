@@ -150,10 +150,10 @@ var SITE_CONFIG = {
     }
   },
 
-  /* ---- Skills banner (hotlinked from skillicons.dev; edit the i= list). ---- */
+  /* ---- Skills banner (self-hosted SVGs; swap the files to change). ---- */
   skills: {
-    pc: { src: "https://skillicons.dev/icons?i=html,css,js,ts,react,vue,nodejs,python,go,c,cpp,linux,docker,git,github,postman,vscode,markdown,photoshop,bash&perline=16", alt: "Technical Skills Icons", width: 960, height: 64 },
-    mobile: { src: "https://skillicons.dev/icons?i=html,css,js,ts,react,vue,nodejs,python,go,c,cpp,linux,docker,git,github,postman,vscode,markdown,photoshop,bash&perline=8", alt: "Technical Skills Icons", width: 360, height: 128 }
+    pc: { src: "./static/svg/skills-pc.svg", alt: "Technical Skills Icons", width: 892, height: 104 },
+    mobile: { src: "./static/svg/skills-wap.svg", alt: "Technical Skills Icons", width: 442, height: 161 }
   },
 
   /* ---- Reward modal images (sponsor QR codes). ---- */
