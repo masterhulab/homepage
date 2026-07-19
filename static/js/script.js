@@ -374,22 +374,23 @@
   }
 
   /* Uptime Counter */
-  function updateSiteUptime() {
-    const now = Date.now();
-    const diff = now - BIRTH_TIMESTAMP;
+  // First paint rolls the day counter up from zero; afterwards it ticks normally.
+  let uptimeAnimated = false;
+  let uptimeRolling = false;
 
+  function prefersReducedMotion() {
+    return window.matchMedia
+      && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  }
+
+  function renderUptime(days, hours, minutes, seconds) {
     const node = UI.uptimeElement;
     if (!node) return;
 
-    if (diff < 0) {
+    if (days < 0) {
       node.textContent = "站点筹备中...";
       return;
     }
-
-    const days = Math.floor(diff / 86400000);
-    const hours = Math.floor(diff / 3600000) % 24;
-    const minutes = Math.floor(diff / 60000) % 60;
-    const seconds = Math.floor(diff / 1000) % 60;
 
     const years = Math.floor(days / 365);
     const remainingDays = days % 365;
@@ -405,6 +406,44 @@
     node.appendChild(document.createTextNode(yearDayPart));
     node.appendChild(document.createElement("br"));
     node.appendChild(document.createTextNode(timePart));
+  }
+
+  function updateSiteUptime() {
+    // A rolling first paint owns the element until it finishes
+    if (uptimeRolling) return;
+
+    const diff = Date.now() - BIRTH_TIMESTAMP;
+    if (diff < 0) {
+      renderUptime(-1, 0, 0, 0);
+      return;
+    }
+
+    const days = Math.floor(diff / 86400000);
+    const hours = Math.floor(diff / 3600000) % 24;
+    const minutes = Math.floor(diff / 60000) % 60;
+    const seconds = Math.floor(diff / 1000) % 60;
+
+    // Roll the day figure up once, easeOutCubic, ~1s; skip under reduced motion
+    if (!uptimeAnimated && days > 0 && !prefersReducedMotion()) {
+      uptimeAnimated = true;
+      uptimeRolling = true;
+      const t0 = performance.now();
+      const step = (now) => {
+        const p = Math.min((now - t0) / 900, 1);
+        const eased = 1 - Math.pow(1 - p, 3);
+        renderUptime(Math.round(days * eased), hours, minutes, seconds);
+        if (p < 1) {
+          requestAnimationFrame(step);
+        } else {
+          uptimeRolling = false;
+        }
+      };
+      requestAnimationFrame(step);
+      return;
+    }
+    uptimeAnimated = true;
+
+    renderUptime(days, hours, minutes, seconds);
   }
 
   /**
