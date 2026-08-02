@@ -252,6 +252,17 @@
     animation: none;
   }
 
+  /* Timeline: no hover on touch — always wrap instead of truncating */
+  .mh-timeline-text {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+  }
+
+  .mh-timeline-list {
+    scroll-snap-type: none;
+  }
+
   /* Live2D mascot covers the timeline and cards on narrow screens — hide it */
   #waifu {
     display: none !important;
