@@ -908,6 +908,28 @@
     cards.forEach((card) => observer.observe(card));
   }
 
+  /**
+   * Nav scroll state: the pill shrinks and its glass darkens once the page
+   * scrolls past the top. rAF-throttled so the scroll handler stays cheap.
+   */
+  function initNavScrollState() {
+    const nav = document.querySelector(".mh-nav");
+    if (!nav) return;
+
+    let ticking = false;
+    const update = () => {
+      nav.classList.toggle("mh-scrolled", window.scrollY > 24);
+      ticking = false;
+    };
+    window.addEventListener("scroll", () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(update);
+      }
+    }, { passive: true });
+    update();
+  }
+
   // Loading removal logic with safety timeout
   function removeLoading() {
     if (!UI.loading || UI.loading.classList.contains("hide")) return;
@@ -957,6 +979,8 @@
     // Reveal cards on scroll; pause float animations off-screen
     initCardAnimationObserver();
 
+    // Shrink the nav pill once the page scrolls
+    initNavScrollState();
 
   });
 })();

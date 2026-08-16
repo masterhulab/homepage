@@ -60,6 +60,7 @@
   /* Navbar background (More translucent) */
   --nav-bg-color: rgba(255, 255, 255, 0.1);
   /* Navbar background once the page is scrolled (deeper glass) */
+  --nav-bg-color-scrolled: rgba(255, 255, 255, 0.2);
   /* Navbar border color (reserved for user customization) */
   --nav-border-color: rgba(255, 255, 255, 0.2);
   /* Navbar shadow (reserved for user customization) */
@@ -126,6 +127,7 @@
   --back-filter-color: rgba(0, 0, 0, 0.3);
   
   --nav-bg-color: rgba(0, 0, 0, 0.4);
+  --nav-bg-color-scrolled: rgba(0, 0, 0, 0.55);
   --nav-border-color: rgba(255, 255, 255, 0.08);
   
   --timeline-line-color: rgba(255, 255, 255, 0.1);
@@ -155,6 +157,7 @@
   --icon-fill-color: #000000;
   
   --nav-bg-color: rgba(255, 255, 255, 0.6);
+  --nav-bg-color-scrolled: rgba(255, 255, 255, 0.8);
   --nav-border-color: rgba(0, 0, 0, 0.05);
   --nav-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
   
@@ -184,6 +187,7 @@
   --back-filter-color: rgba(0, 0, 0, 0.19);
   
   --nav-bg-color: rgba(0, 0, 0, 0.2);
+  --nav-bg-color-scrolled: rgba(0, 0, 0, 0.38);
   --nav-border-color: rgba(255, 255, 255, 0.1);
   
   --timeline-line-color: rgba(255, 255, 255, 0.15);
@@ -210,6 +214,7 @@
   --icon-fill-color: #000000;
   
   --nav-bg-color: rgba(255, 255, 255, 0.5);
+  --nav-bg-color-scrolled: rgba(255, 255, 255, 0.72);
   --nav-border-color: rgba(255, 255, 255, 0.6);
   --nav-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
   
@@ -243,6 +248,7 @@
   --icon-fill-color: #000000;
   
   --nav-bg-color: rgba(255, 255, 255, 0.8);
+  --nav-bg-color-scrolled: rgba(255, 255, 255, 0.95);
   --nav-border-color: rgba(0, 0, 0, 0.05);
   --nav-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
   
@@ -276,6 +282,7 @@
   --icon-fill-color: #ffffff;
   
   --nav-bg-color: rgba(28, 28, 30, 0.6);
+  --nav-bg-color-scrolled: rgba(28, 28, 30, 0.78);
   --nav-border-color: rgba(255, 255, 255, 0.1);
   --nav-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
   
