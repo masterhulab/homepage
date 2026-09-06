@@ -9,3 +9,14 @@ desktop.ini
 *.bak
 *.tmp
 *.orig
+.env*
+node_modules/
+dist/
+build/
+__pycache__/
+*.pyc
+
+# Local notes & scratch files
+.plan.md
+.workbuddy/
+.tmp-*
