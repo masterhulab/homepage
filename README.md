@@ -1,6 +1,6 @@
 # MasterHu Homepage | 个人主页模板
 
-![Version](https://img.shields.io/badge/version-1.2.0-blue)
+![Version](https://img.shields.io/badge/version-1.2.1-blue)
 
 ![License](https://img.shields.io/badge/license-CC%20BY--NC%204.0-green)
 ![HTML](https://img.shields.io/badge/HTML-5-orange)
