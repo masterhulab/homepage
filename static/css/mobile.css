@@ -263,11 +263,6 @@
     scroll-snap-type: none;
   }
 
-  /* Live2D mascot covers the timeline and cards on narrow screens — hide it */
-  #waifu {
-    display: none !important;
-  }
-
   /* ==================================================
    Content: Skills (Mobile Switch)
 ================================================== */

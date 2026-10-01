@@ -371,14 +371,15 @@ def check_css(root, finding):
         for kind, value in MEDIA_RE.findall(text):
             boundaries.append((kind, int(value), rel(root, path)))
 
-    maxes = [b for b in boundaries if b[0] == "max"]
-    mins = [b for b in boundaries if b[0] == "min"]
-    for _, mval, mfile in maxes:
-        for _, nval, nfile in mins:
-            if nval <= mval:
-                finding("css.breakpoint", "WARN",
-                        f"max-width {mval}px and min-width {nval}px overlap at the boundary",
-                        f"{mfile} / {nfile}")
+    # Only an identical value is ambiguous (both queries match at exactly Xpx).
+    # A nested layer — e.g. min-width:801 base plus a max-width:1100 tablet
+    # overlay — overlaps by design, so the old "min <= max" test would false-positive.
+    maxvals = {value for kind, value, _ in boundaries if kind == "max"}
+    for kind, nval, nfile in boundaries:
+        if kind == "min" and nval in maxvals:
+            finding("css.breakpoint", "WARN",
+                    f"min-width {nval}px collides with an identical max-width boundary",
+                    nfile)
 
 
 def check_js(root, finding):
