@@ -498,6 +498,8 @@ if (C && typeof C === "object") {
   need(Number.isFinite(C.typingInterval), "typingInterval must be a number");
   need(typeof C.birthTime === "string" && !isNaN(Date.parse(C.birthTime)),
        "birthTime must be a parseable date");
+  need(C.birthPendingText === undefined || typeof C.birthPendingText === "string",
+       "birthPendingText must be a string when present");
 
   const sn = C.snake || {};
   need(exists(sn.light) && exists(sn.dark),

@@ -388,7 +388,7 @@
     if (!node) return;
 
     if (days < 0) {
-      node.textContent = "站点筹备中...";
+      node.textContent = (EXT_CFG && EXT_CFG.birthPendingText) || "站点筹备中...";
       return;
     }
 

@@ -188,6 +188,8 @@ var SITE_CONFIG = {
 
   /* ---- Build date — drives the "running time" counter and footer year. ---- */
   birthTime: "2026/01/01 00:00:00",
+  /* Shown while birthTime is still in the future. */
+  birthPendingText: "站点筹备中...",
 
   /* ---- GitHub contribution snake, one variant per background tone. ---- */
   snake: {
