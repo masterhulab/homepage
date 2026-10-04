@@ -40,6 +40,7 @@
 ::-webkit-scrollbar-thumb {
   background-color: rgba(128, 128, 128, 0.4);
   border-radius: 4px;
+  -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
 }
 
@@ -1237,6 +1238,7 @@ footer {
   cursor: pointer;
   
   transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
   
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -1263,6 +1265,7 @@ footer {
   background: transparent;
   box-shadow: none;
   border: none;
+  -webkit-backdrop-filter: none;
   backdrop-filter: none;
 }
 
@@ -1306,6 +1309,7 @@ footer {
   
   background: rgba(0, 0, 0, 0.3);
   border-radius: 50%;
+  -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
   
   color: #ffffff;
