@@ -1,6 +1,7 @@
 # MasterHu Homepage | 个人主页模板
 
 ![Version](https://img.shields.io/badge/version-1.2.1-blue)
+![CI](https://github.com/masterhulab/homepage/actions/workflows/verify.yml/badge.svg)
 
 ![License](https://img.shields.io/badge/license-CC%20BY--NC%204.0-green)
 ![HTML](https://img.shields.io/badge/HTML-5-orange)
@@ -49,7 +50,9 @@ homepage/
 │   └── svg/                # SVG 图标 Sprite 系统
 ├── scripts/
 │   ├── verify.py           # 零依赖校验器 (断链/结构/版本/外部阻塞资源)
-│   └── release.py          # 版本号传播 (badge + ?v= + generator)
+│   ├── release.py          # 版本号传播 (badge + ?v= + generator)
+│   └── render-test.js      # 渲染一致性自测 (DOM 契约/图标引用/启动顺序)
+├── .github/workflows/      # CI: push / PR 自动跑校验 + 渲染自测
 ├── .githooks/              # 可选 commit-msg 钩子 (强制提交格式)
 └── README.md               # 项目文档
 ```
@@ -230,8 +233,11 @@ var EXTERNALS = [
 - **提交规范**：commit message 用英文，格式 `<emoji> <type>(<scope>): <描述>`，
   如 `🐛 fix(a11y): ...`；type 用 `feat` / `fix` / `perf` / `docs` / `chore` 等。
 - **提交前校验**：`python scripts/verify.py`（检查断链、HTML 结构、CSS/JS 语法、版本一致性、外部阻塞资源）。
+- **渲染自测**：`node scripts/render-test.js`（核对 DOM 契约、图标引用、启动顺序）。
 - **发布**：`python scripts/release.py --bump patch` 一次同步版本号，勿手改 `?v=`。
 - **可选**：`git config core.hooksPath .githooks` 启用提交钩子，强制 message 格式。
+
+> 每次 push / PR 都会由 CI 自动跑上述两项检查（见 `.github/workflows/verify.yml`）。
 
 - 🐛 [报告 Bug](https://github.com/masterhulab/homepage/issues)
 - 💡 [提出建议](https://github.com/masterhulab/homepage/issues)
