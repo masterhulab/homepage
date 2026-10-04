@@ -64,8 +64,8 @@ ok("selector queries checked (" + (staticClasses.length + renderedClasses.length
 const containers = ["nav-brand", "nav-links", "loading-brand", "sidebar-avatar",
   "sidebar-bio", "sidebar-tags", "sidebar-timeline", "hero-avatar",
   "hero-greeting", "hero-actions", "site-section-title", "site-grid",
-  "project-section-title", "project-grid", "skills", "reward-stack",
-  "footer-signature", "footer-link", "footer-rights", "snake-img",
+  "project-section-title", "project-grid", "skills-section-title", "skills",
+  "reward-stack", "footer-signature", "footer-link", "footer-rights", "snake-img",
   "hero-motto", "hero-motto-alt", "footer-year"];
 for (const id of containers) {
   if (!htmlIds.has(id)) fail(`render container #${id} missing from index.html`);

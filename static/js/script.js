@@ -290,6 +290,8 @@
   function renderSkills(cfg) {
     const box = document.getElementById("skills");
     if (!box || !cfg.skills) return;
+    const skillsTitle = document.getElementById("skills-section-title");
+    if (skillsTitle) skillsTitle.textContent = cfg.skills.title || "";
     const variants = [
       { data: cfg.skills.pc, id: "skill-pc" },
       { data: cfg.skills.mobile, id: "skill-mobile" }

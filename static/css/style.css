@@ -938,6 +938,13 @@ a, button, .mh-site-card, .mh-project-card, .nav-theme-toggle, .hero-actions-ite
   transform: translateY(-5px) scale(1.02);
 }
 
+/* Section headings inherit the title bar's type size instead of the UA's
+   h2 default (1.5em), which would double the intended 26px */
+.mh-sections-title h2 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
 /* --- Grids (Site & Project) --- */
 .mh-site-grid, .mh-project-grid {
   display: flex;

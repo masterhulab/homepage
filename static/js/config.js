@@ -152,6 +152,7 @@ var SITE_CONFIG = {
 
   /* ---- Skills banner (self-hosted SVGs; swap the files to change). ---- */
   skills: {
+    title: "skills",
     pc: { src: "./static/svg/skills-pc.svg", alt: "Technical Skills Icons", width: 892, height: 104 },
     mobile: { src: "./static/svg/skills-wap.svg", alt: "Technical Skills Icons", width: 442, height: 161 }
   },
