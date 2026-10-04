@@ -34,6 +34,8 @@
 homepage/
 ├── index.html              # 页面入口 (HTML5 语义化结构)
 ├── 404.html                # 趣味 404 页面
+├── robots.txt              # 爬虫规则 (全站可索引, 指向 sitemap)
+├── sitemap.xml             # 站点地图
 ├── .gitattributes          # Git 换行符规范 (LF)
 ├── .gitignore              # Git 忽略规则
 ├── LICENSE                 # 开源协议 (CC BY-NC 4.0)

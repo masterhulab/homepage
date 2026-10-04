@@ -1,0 +1,7 @@
+# Static single-page site: everything is indexable except the 404 helper,
+# which declares its own <meta name="robots" content="noindex"> — do NOT
+# Disallow it here, crawlers must be able to see that meta directive.
+User-agent: *
+Allow: /
+
+Sitemap: https://masterhu.com.cn/sitemap.xml
