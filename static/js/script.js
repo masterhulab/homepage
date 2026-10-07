@@ -58,6 +58,10 @@
   const BIRTH_TIME = (EXT_CFG && EXT_CFG.birthTime) || "2026/01/01 00:00:00";
   const UPTIME_RENDER_ID = "run-time";
 
+  // Desktop breakpoint — keep in sync with mobile.css (max-width: 800px) and
+  // the desktop base layer in style.css (min-width: 801px)
+  const DESKTOP_MQ = "(min-width: 801px)";
+
   // Precompute timestamp to avoid parsing the date repeatedly in the loop
   let BIRTH_TIMESTAMP = new Date(BIRTH_TIME).getTime();
   if (!Number.isFinite(BIRTH_TIMESTAMP)) {
@@ -729,7 +733,7 @@
   function initMobileNav() {
     if (!UI.navBurger || !UI.navLinks) return;
 
-    const isMobile = !window.matchMedia("(min-width: 801px)").matches;
+    const isMobile = !window.matchMedia(DESKTOP_MQ).matches;
 
     // Mobile: nav is visually hidden on load — hide from screen readers too
     if (isMobile) {
@@ -762,7 +766,7 @@
     });
 
     // Reset nav state when the viewport crosses the 801px breakpoint (see mobile.css)
-    const mq = window.matchMedia("(min-width: 801px)");
+    const mq = window.matchMedia(DESKTOP_MQ);
     const syncNavForViewport = (e) => {
       if (e.matches) {
         UI.navLinks.classList.remove("nav-active");
