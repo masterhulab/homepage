@@ -23,7 +23,7 @@ var SITE_CONFIG = {
   brand: {
     navBrand: "MasterHu's Home",
     loading: "MasterHu",
-    signature: "𝓜𝓪𝓼𝓽𝓮𝓻𝓱𝓾",
+    signature: "MasterHu",
     siteUrl: "https://masterhu.com.cn/",
     footer: "All Rights Reserved."
   },
