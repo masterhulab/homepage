@@ -670,20 +670,10 @@ a, button, .mh-site-card, .mh-project-card, .nav-theme-toggle, .hero-actions-ite
 /* --- Timeline Section --- */
 .mh-timeline-list {
   width: 100%;
-  max-height: 220px;
   padding-left: 8px;
   
   list-style: none;
   font-size: 13px;
-  
-  overflow-y: scroll;
-  /* proximity, not mandatory: mandatory locks scrolling when content nears the container height */
-  scroll-snap-type: y proximity;
-  scrollbar-width: none;
-}
-
-.mh-timeline-list::-webkit-scrollbar {
-  display: none;
 }
 
 .mh-timeline-item {

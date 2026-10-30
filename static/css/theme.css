@@ -68,7 +68,7 @@
   
   /* --- Timeline & Icons --- */
   /* Vertical line color in timeline */
-  --timeline-line-color: rgba(255, 255, 255, 0.15);
+  --timeline-line-color: rgba(255, 255, 255, 0.35);
   /* Timeline dot color (default white) */
   --timeline-dot-color: #ffffff;
   /* Timeline active dot color (first item pulse) */
@@ -130,7 +130,7 @@
   --nav-bg-color-scrolled: rgba(0, 0, 0, 0.55);
   --nav-border-color: rgba(255, 255, 255, 0.08);
   
-  --timeline-line-color: rgba(255, 255, 255, 0.1);
+  --timeline-line-color: rgba(255, 255, 255, 0.30);
   
   --modal-bg-color: rgba(0, 0, 0, 0.65);
   --modal-main-bg: rgba(28, 28, 30, 0.95); /* iOS System Gray 6 */
@@ -161,7 +161,7 @@
   --nav-border-color: rgba(0, 0, 0, 0.05);
   --nav-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
   
-  --timeline-line-color: rgba(0, 0, 0, 0.1);
+  --timeline-line-color: rgba(0, 0, 0, 0.25);
   --timeline-dot-color: #333333;
   --avatar-border-color: rgba(0, 0, 0, 0.15);
   --motto-color: #000000;
@@ -190,7 +190,7 @@
   --nav-bg-color-scrolled: rgba(0, 0, 0, 0.38);
   --nav-border-color: rgba(255, 255, 255, 0.1);
   
-  --timeline-line-color: rgba(255, 255, 255, 0.15);
+  --timeline-line-color: rgba(255, 255, 255, 0.35);
   
   --modal-bg-color: rgba(0, 0, 0, 0.65);
   --modal-main-bg: rgba(10, 10, 10, 0.98);
@@ -286,7 +286,7 @@
   --nav-border-color: rgba(255, 255, 255, 0.1);
   --nav-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
   
-  --timeline-line-color: rgba(255, 255, 255, 0.2);
+  --timeline-line-color: rgba(255, 255, 255, 0.35);
   
   --modal-bg-color: rgba(0, 0, 0, 0.75);
   --modal-main-bg: rgba(28, 28, 30, 0.95);

@@ -203,7 +203,10 @@
         });
         li.appendChild(el("div", { "class": "mh-timeline-dot" }));
         li.appendChild(el("div", { "class": "mh-timeline-text" }, item.text || "..."));
-        li.appendChild(el("div", { "class": "mh-timeline-date" }, item.date || "..."));
+        // The "more" marker is a single ellipsis, not an entry with a date
+        if (!item.more) {
+          li.appendChild(el("div", { "class": "mh-timeline-date" }, item.date || "..."));
+        }
         timeline.appendChild(li);
       });
     }

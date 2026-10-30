@@ -259,10 +259,6 @@
     text-overflow: clip;
   }
 
-  .mh-timeline-list {
-    scroll-snap-type: none;
-  }
-
   /* ==================================================
    Content: Skills (Mobile Switch)
 ================================================== */
